@@ -3,14 +3,13 @@ package com.example.matchinggamememory;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
 
 import java.util.Random;
-//import java.util.logging.Handler;
 import android.os.Handler;
-import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,16 +17,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private MemoryButton[] memoryButtons;
     private int[] buttonsLocations;
     private int[] distinctButtons;
-
     private MemoryButton selectedButton1;
     private MemoryButton selectedButton2;
-
     private boolean isBusy = false;
+    private long startTime = 0;
+    private int triesCounter = 0;
+    private LeaderBoardsHandler leaderBoardsHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        View someView = findViewById(R.id.gameActivity);
+        View root = someView.getRootView();
+        root.setBackgroundColor(Color.rgb(16,127,196));
+
+        leaderBoardsHandler = new LeaderBoardsHandler(this);
 
         GridLayout gridLayout = (GridLayout)findViewById(R.id.gridLayout);
 
@@ -57,8 +63,21 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 tmpBtn.setOnClickListener(this);
                 memoryButtons[idx] = tmpBtn;
                 gridLayout.addView(tmpBtn);
+                gridLayout.setPadding(20,20,20,20);
+                gridLayout.setBackgroundColor(Color.BLACK);
             }
         }
+
+        findViewById(R.id.backToMain).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent mainActivity = new Intent(GameActivity.this, MainActivity.class);
+                startActivity(mainActivity);
+            }
+        });
+
+        this.startTime = System.currentTimeMillis();
     }
 
     public void shuffleButtons() {
@@ -75,7 +94,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             buttonsLocations[replace] = curr;
         }
     }
-
 
     @Override
     public void onClick(View view) {
@@ -94,6 +112,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         // Match
         if (selectedButton1.getImageId() == button.getImageId()) {
+            this.triesCounter++;
             button.flip();
 
             button.setMatched(true);
@@ -113,16 +132,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             if (isGameFinished) {
-                // TODO: Save the number of tries and time for the current game in the phone internal storage.
-                // Use this data in a new activity for the leaderboards and display the top X best results.
-                // Add another about and contact activity
-                Toast toast = Toast.makeText(this, "Game Finish!", Toast.LENGTH_LONG);
-                toast.show();
-                Intent mainActivity = new Intent(GameActivity.this, MainActivity.class);
-                startActivity(mainActivity);
+                long endTime = System.currentTimeMillis();
+                double duration = (endTime - this.startTime) / 1000.0;
+                this.leaderBoardsHandler.saveToLeaderBoardsIfNeeded(this.triesCounter);
+
+                Intent intent = new Intent(GameActivity.this, ResultsActivity.class);
+                intent.putExtra("duration", String.valueOf(duration));
+                intent.putExtra("triesCounter", String.valueOf(this.triesCounter));
+                startActivity(intent);
             }
             return;
         } else  {
+            this.triesCounter++;
             selectedButton2 = button;
             selectedButton2.flip();
             isBusy = true;

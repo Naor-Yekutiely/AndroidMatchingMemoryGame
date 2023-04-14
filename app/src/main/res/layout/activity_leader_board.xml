@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- TextView -->
+    <TextView
+        android:id="@+id/leaderBoardTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp"/>
+
+    <!-- TextView -->
+    <TextView
+        android:id="@+id/TriesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"/>
+
+<!-- GridLayout -->
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/LeaderBoardGridLayout"
+        android:columnCount="1"
+        android:rowCount="10"
+        tools:context=".LeaderBoardActivity">
+    </GridLayout>
+
+    <Button
+        android:id="@+id/backToMain"
+        android:layout_width="281dp"
+        android:layout_height="66dp"
+        android:text="Back to Home Screen"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="386dp" />
+</LinearLayout>

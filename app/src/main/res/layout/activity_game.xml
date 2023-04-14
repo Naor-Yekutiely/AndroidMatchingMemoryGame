@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:id="@+id/gridLayout"
-    android:columnCount="4"
-    android:rowCount="4"
-    tools:context=".GameActivity">
-</GridLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_centerVertical="true"
+android:layout_centerHorizontal="true"
+android:orientation="vertical"
+android:gravity="center"
+android:layout_height="match_parent"
+android:id="@+id/gameActivity"
+xmlns:tools="http://schemas.android.com/tools">
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/gridLayout"
+        android:background="@drawable/grid_border"
+        android:columnCount="4"
+        android:rowCount="4"
+        tools:context=".GameActivity">
+    </GridLayout>
+
+    <Button
+        android:id="@+id/backToMain"
+        android:layout_width="281dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="25dp"
+        android:text="Back to Home Screen"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="386dp" />
+</LinearLayout>

@@ -1,18 +1,11 @@
 package com.example.matchinggamememory;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button startGame;
-    private Button results;
-    private Button about;
-    private Button settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +19,24 @@ public class MainActivity extends AppCompatActivity {
                   Intent gameActivity = new Intent(MainActivity.this, GameActivity.class);
                   startActivity(gameActivity);
               }
+        });
+
+        findViewById(R.id.leaderBoard).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent gameActivity = new Intent(MainActivity.this, LeaderBoardActivity.class);
+                startActivity(gameActivity);
+            }
+        });
+
+        findViewById(R.id.about).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent aboutActivity = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(aboutActivity);
+            }
         });
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    android:id="@+id/aboutActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- TextView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/durationTextView"
+            android:layout_marginTop="25dp"
+            android:paddingTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="22dp"
+            android:text="In the current era of technology, children have easy access to smartphones and electronic devices from a very early age. While these devices offer great benefits for learning and entertainment, they can also negatively impact a child's concentration and cause distractions. To address this issue, memory games like the 'Card Memory Game' can prove to be a useful solution. By engaging memory and fostering attention to different details, the 'Card Memory Game' can help enhance motivation and concentration abilities for the future. Moreover, it is a fun and engaging way for children to acquire new skills and knowledge. Additionally, the game is designed with user-friendly controls and clear instructions, making it accessible for children of all ages."
+            tools:context=".AboutActivity"/>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/backToMain"
+        android:layout_width="281dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="15dp"
+        android:text="Back to Home Screen"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="386dp"
+        tools:context=".AboutActivity"/>
+</LinearLayout>

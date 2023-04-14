@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    android:id="@+id/resultsActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- TextView -->
+    <TextView
+        android:id="@+id/durationTextView"
+        android:layout_marginTop="25dp"
+        android:paddingTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        tools:context=".ResultsActivity"/>
+
+    <!-- TextView -->
+    <TextView
+        android:id="@+id/triesCountTextView"
+        android:layout_marginTop="25dp"
+        android:paddingTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/Restart"
+        android:layout_width="281dp"
+        android:layout_height="66dp"
+        android:text="Play Again"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+    <Button
+        android:id="@+id/leaderBoards"
+        android:layout_width="281dp"
+        android:layout_height="66dp"
+        android:text="Go to Leaderboard"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+    <Button
+        android:id="@+id/backToMain"
+        android:layout_width="281dp"
+        android:layout_height="66dp"
+        android:text="Back to Home Screen"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="386dp" />
+</LinearLayout>
